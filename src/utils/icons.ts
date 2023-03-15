@@ -11,6 +11,8 @@ import { IoSquareSharp, IoCarOutline } from "react-icons/io5";
 import { IoMdAdd } from "react-icons/io";
 import { RxDotFilled } from "react-icons/rx";
 import { MdOutlineKingBed } from "react-icons/md";
+import { FiChevronDown } from 'react-icons/Fi';
+import { TbCircleDot } from 'react-icons/Tb';
 
 export {
   HiPhone,
@@ -33,4 +35,6 @@ export {
   GiBathtub,
   MdOutlineKingBed,
   IoCarOutline,
+  FiChevronDown, 
+  TbCircleDot
 };

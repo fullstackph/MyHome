@@ -9,6 +9,7 @@ import { ImLocation2, ImGooglePlus } from "react-icons/im";
 import { FaFacebookF, FaTwitter } from "react-icons/fa";
 import { SlSocialPintarest } from "react-icons/Sl";
 import { IoMdAdd } from "react-icons/io";
+import { IoSquareSharp } from "react-icons/io5";
 
 export {
   HiPhone,
@@ -24,4 +25,5 @@ export {
   GrClose,
   BsChevronDown,
   BsChevronUp,
+  IoSquareSharp,
 };

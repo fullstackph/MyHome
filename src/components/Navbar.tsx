@@ -21,6 +21,7 @@ import {
   BsChevronUp,
   BsChevronDown,
   GrClose,
+  IoSquareSharp,
 } from "@/utils/icons";
 
 export default function WithSubnavigation() {
@@ -107,42 +108,86 @@ const DesktopNav = () => {
     <Stack direction={"row"} spacing={8} whiteSpace="nowrap">
       {NAV_ITEMS.map((navItem) => (
         <Box key={navItem.label}>
-          <Popover trigger={"hover"} placement={"bottom-start"}>
-            <PopoverTrigger>
-              <Link
-                p={2}
-                href={navItem.href ?? "#"}
-                fontSize={"12px"}
-                letterSpacing={1.2}
-                textTransform={"uppercase"}
-                fontWeight={700}
-                color={linkColor}
-                _hover={{
-                  textDecoration: "none",
-                  color: linkHoverColor,
-                }}
-              >
-                {navItem.label}
-              </Link>
-            </PopoverTrigger>
-
-            {navItem.children && (
-              <PopoverContent
-                border={0}
-                boxShadow={"xl"}
-                bg={popoverContentBgColor}
-                p={4}
-                rounded={"xl"}
-                minW={"sm"}
-              >
-                <Stack>
-                  {navItem.children.map((child) => (
-                    <DesktopSubNav key={child.label} {...child} />
-                  ))}
-                </Stack>
-              </PopoverContent>
-            )}
-          </Popover>
+          {navItem.label === "Pages" ? (
+            <Popover trigger={"hover"} placement={"bottom-start"}>
+              <PopoverTrigger>
+                <Link
+                  p={2}
+                  href={navItem.href ?? "#"}
+                  fontSize={"12px"}
+                  letterSpacing={1.2}
+                  textTransform={"uppercase"}
+                  fontWeight={700}
+                  color={linkColor}
+                  _hover={{
+                    textDecoration: "none",
+                    color: linkHoverColor,
+                  }}
+                >
+                  {navItem.label}
+                </Link>
+              </PopoverTrigger>
+              {navItem.children && (
+                <PopoverContent
+                  border={0}
+                  boxShadow={"xl"}
+                  bg={popoverContentBgColor}
+                  p={4}
+                  borderRadius={"0"}
+                  w={"1200px"}
+                  // position="fixed"
+                  top="50%"
+                  left="26%"
+                  // transform="translate(-50%, -50%)"
+                >
+                  <Stack>
+                    <Flex justifyContent={"space-between"} px={"50px"}>
+                      {navItem.children.map((child) => (
+                        <DesktopSubNavPages key={child.label} {...child} />
+                      ))}
+                    </Flex>
+                  </Stack>
+                </PopoverContent>
+              )}
+            </Popover>
+          ) : (
+            <Popover trigger={"hover"} placement={"bottom-start"}>
+              <PopoverTrigger>
+                <Link
+                  p={2}
+                  w={"max-content"}
+                  href={navItem.href ?? "#"}
+                  fontSize={"12px"}
+                  letterSpacing={1.2}
+                  textTransform={"uppercase"}
+                  fontWeight={700}
+                  color={linkColor}
+                  _hover={{
+                    textDecoration: "none",
+                    color: linkHoverColor,
+                  }}
+                >
+                  {navItem.label}
+                </Link>
+              </PopoverTrigger>
+              {navItem.children && (
+                <PopoverContent
+                  border={0}
+                  boxShadow={"xl"}
+                  bg={popoverContentBgColor}
+                  p={4}
+                  borderRadius={"0"}
+                  maxW={"250px"}
+                >
+                  <Stack>
+                    {navItem.children.map((child) => (
+                      <DesktopSubNav key={child.label} {...child} />
+                    ))}
+                  </Stack>
+                </PopoverContent>
+              )}
+            </Popover>
+          )}
         </Box>
       ))}
     </Stack>
@@ -157,32 +202,58 @@ const DesktopSubNav = ({ label, href, subLabel }: NavItem) => {
       display={"block"}
       p={2}
       rounded={"md"}
-      _hover={{ bg: useColorModeValue("pink.50", "gray.900") }}
+      _hover={{ textDecoration: "none", color: "#bc986b" }}
     >
-      <Stack direction={"row"} align={"center"}>
-        <Box>
+      <Stack
+        pb={"10px"}
+        direction={"row"}
+        align={"center"}
+        borderBottom={"1px solid #E1E1E1"}
+      >
+        <Flex alignItems={"center"}>
+          <Icon h={"10px"} color={"#c2d3f2"} as={IoSquareSharp} />
           <Text
+            fontSize={"14px"}
             transition={"all .3s ease"}
-            _groupHover={{ color: "pink.400" }}
             fontWeight={500}
+            ml={"10px"}
           >
             {label}
           </Text>
-          <Text fontSize={"sm"}>{subLabel}</Text>
-        </Box>
-        <Flex
-          transition={"all .3s ease"}
-          transform={"translateX(-10px)"}
-          opacity={0}
-          _groupHover={{ opacity: "100%", transform: "translateX(0)" }}
-          justify={"flex-end"}
-          align={"center"}
-          flex={1}
-        >
-          <Icon color={"pink.400"} w={5} h={5} as={BsChevronUp} />
         </Flex>
       </Stack>
     </Link>
+  );
+};
+
+const DesktopSubNavPages = ({ label, href, children }: NavItem) => {
+  return (
+    <Box role={"group"} display={"block"} p={2}>
+      <Stack direction={"column"} align={"center"}>
+        <Box>
+          <Text
+            transition={"all .3s ease"}
+            fontWeight={700}
+            fontSize={"18px"}
+            textTransform={"uppercase"}
+          >
+            {label}
+          </Text>
+          {children?.map((child) => (
+            <Flex
+              alignItems={"center"}
+              my={"10px"}
+              _hover={{ color: "#bc986b" }}
+            >
+              <Icon h={"10px"} color={"#c2d3f2"} as={IoSquareSharp} />
+              <Link fontSize={"14px"} href={href} ml={"10px"}>
+                {child.label}
+              </Link>
+            </Flex>
+          ))}
+        </Box>
+      </Stack>
+    </Box>
   );
 };
 
@@ -380,7 +451,7 @@ const NAV_ITEMS: Array<NavItem> = [
     ],
   },
   {
-    label: "Conatct Us",
+    label: "Contact Us",
     href: "#",
   },
 ];

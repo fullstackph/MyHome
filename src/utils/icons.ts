@@ -8,8 +8,9 @@ import { BiLogIn } from "react-icons/bi";
 import { ImLocation2, ImGooglePlus } from "react-icons/im";
 import { FaFacebookF, FaTwitter } from "react-icons/fa";
 import { SlSocialPintarest } from "react-icons/Sl";
-import { IoMdAdd } from "react-icons/io";
 import { IoSquareSharp } from "react-icons/io5";
+import { IoMdAdd } from "react-icons/io";
+import { BsFillSquareFill } from "react-icons/bs";
 
 export {
   HiPhone,
@@ -21,6 +22,7 @@ export {
   FaTwitter,
   SlSocialPintarest,
   IoMdAdd,
+  BsFillSquareFill,
   GiHamburgerMenu,
   GrClose,
   BsChevronDown,

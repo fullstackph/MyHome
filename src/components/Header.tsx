@@ -5,12 +5,13 @@ import Navbar from "./Navbar";
 const Header = () => {
   return (
     <>
-      <Box px={{ base: "10", md: "50", lg: "350" }}>
+      <Box>
         <Flex
           minH={50}
           borderBottom="1px solid #E1E1E1"
           justifyContent="space-between"
           display={{ base: "none", md: "flex" }}
+          px={{ base: "10", md: "50", lg: "350" }}
         >
           <Box display="flex" alignItems="center">
             <Flex

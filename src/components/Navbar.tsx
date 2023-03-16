@@ -1,3 +1,4 @@
+import { useState } from "react";
 import {
   Box,
   Flex,
@@ -28,7 +29,7 @@ export default function WithSubnavigation() {
   const { isOpen, onToggle } = useDisclosure();
 
   return (
-    <Box>
+    <Box px={{ base: "10", md: "50", lg: "350" }}>
       <Flex
         bg={useColorModeValue("white", "gray.800")}
         color={useColorModeValue("gray.600", "white")}
@@ -64,7 +65,7 @@ export default function WithSubnavigation() {
           justify={"flex-end"}
           align={"center"}
           direction={"row"}
-          spacing={6}
+          spacing={8}
         >
           <Flex display={{ base: "none", md: "flex" }}>
             <DesktopNav />
@@ -105,7 +106,7 @@ const DesktopNav = () => {
   const popoverContentBgColor = useColorModeValue("white", "gray.800");
 
   return (
-    <Stack direction={"row"} spacing={8} whiteSpace="nowrap">
+    <Stack direction={"row"} spacing={12} whiteSpace="nowrap">
       {NAV_ITEMS.map((navItem) => (
         <Box key={navItem.label}>
           {navItem.label === "Pages" ? (
@@ -121,7 +122,7 @@ const DesktopNav = () => {
                   color={linkColor}
                   _hover={{
                     textDecoration: "none",
-                    color: linkHoverColor,
+                    color: "#BC986B",
                   }}
                 >
                   {navItem.label}
@@ -130,20 +131,35 @@ const DesktopNav = () => {
               {navItem.children && (
                 <PopoverContent
                   border={0}
-                  boxShadow={"xl"}
                   bg={popoverContentBgColor}
                   p={4}
                   borderRadius={"0"}
+                  letterSpacing={1}
                   w={"1200px"}
-                  // position="fixed"
                   top="50%"
                   left="26%"
-                  // transform="translate(-50%, -50%)"
+                  boxShadow="0px 1px 4px 0px rgba(0, 0, 0, 0.24)"
                 >
                   <Stack>
-                    <Flex justifyContent={"space-between"} px={"50px"}>
-                      {navItem.children.map((child) => (
-                        <DesktopSubNavPages key={child.label} {...child} />
+                    <Flex
+                      justifyContent={"space-between"}
+                      px={"15px"}
+                      pt={"10px"}
+                    >
+                      {navItem.children.map((child, index) => (
+                        <>
+                          <Box w={"full"} key={child.label}>
+                            <DesktopSubNavPages {...child} />
+                          </Box>
+                          {index < 2 && (
+                            <Box
+                              w={"4px"}
+                              bg={
+                                "linear-gradient(to top, #ffffff, #f8f8f8, #f2f2f2, #ebebeb, #e5e5e5, #e5e5e5, #e5e5e5, #e5e5e5, #ebebeb, #f2f2f2, #f8f8f8, #ffffff);"
+                              }
+                            ></Box>
+                          )}
+                        </>
                       ))}
                     </Flex>
                   </Stack>
@@ -164,7 +180,7 @@ const DesktopNav = () => {
                   color={linkColor}
                   _hover={{
                     textDecoration: "none",
-                    color: linkHoverColor,
+                    color: "#BC986B",
                   }}
                 >
                   {navItem.label}
@@ -173,15 +189,32 @@ const DesktopNav = () => {
               {navItem.children && (
                 <PopoverContent
                   border={0}
-                  boxShadow={"xl"}
                   bg={popoverContentBgColor}
-                  p={4}
+                  p={[1, 4]}
+                  color={"#444"}
                   borderRadius={"0"}
                   maxW={"250px"}
+                  letterSpacing={1}
+                  boxShadow="0px 1px 4px 0px rgba(0, 0, 0, 0.24)"
                 >
                   <Stack>
-                    {navItem.children.map((child) => (
-                      <DesktopSubNav key={child.label} {...child} />
+                    {navItem.children.map((child, index) => (
+                      <Box
+                        mt={"0"}
+                        key={index}
+                        pb={
+                          index === navItem?.children?.length! - 1
+                            ? "none"
+                            : "8px"
+                        }
+                        borderBottom={
+                          index === navItem?.children?.length! - 1
+                            ? "none"
+                            : "1px solid #e1e1e1"
+                        }
+                      >
+                        <DesktopSubNav {...child} />
+                      </Box>
                     ))}
                   </Stack>
                 </PopoverContent>
@@ -194,23 +227,18 @@ const DesktopNav = () => {
   );
 };
 
-const DesktopSubNav = ({ label, href, subLabel }: NavItem) => {
+const DesktopSubNav = ({ label, href }: NavItem) => {
   return (
     <Link
       href={href}
       role={"group"}
       display={"block"}
-      p={2}
+      p={[1, 2]}
       rounded={"md"}
       _hover={{ textDecoration: "none", color: "#bc986b" }}
     >
-      <Stack
-        pb={"10px"}
-        direction={"row"}
-        align={"center"}
-        borderBottom={"1px solid #E1E1E1"}
-      >
-        <Flex alignItems={"center"}>
+      <Stack direction={"row"} align={"center"}>
+        <Flex alignItems={"center"} justifyContent={"center"}>
           <Icon h={"10px"} color={"#c2d3f2"} as={IoSquareSharp} />
           <Text
             fontSize={"14px"}
@@ -227,9 +255,11 @@ const DesktopSubNav = ({ label, href, subLabel }: NavItem) => {
 };
 
 const DesktopSubNavPages = ({ label, href, children }: NavItem) => {
+  const [keyLabel, setKeyLabel] = useState(label);
+
   return (
-    <Box role={"group"} display={"block"} p={2}>
-      <Stack direction={"column"} align={"center"}>
+    <Box display={"block"} w={"full"} mx={"20px"} key={label}>
+      <Stack direction={"column"}>
         <Box>
           <Text
             transition={"all .3s ease"}
@@ -239,18 +269,22 @@ const DesktopSubNavPages = ({ label, href, children }: NavItem) => {
           >
             {label}
           </Text>
-          {children?.map((child) => (
-            <Flex
-              alignItems={"center"}
-              my={"10px"}
-              _hover={{ color: "#bc986b" }}
-            >
-              <Icon h={"10px"} color={"#c2d3f2"} as={IoSquareSharp} />
-              <Link fontSize={"14px"} href={href} ml={"10px"}>
-                {child.label}
-              </Link>
-            </Flex>
-          ))}
+          <Box w={"full"}>
+            {children?.map((child, index) => (
+              <Flex key={index} alignItems={"center"} my={"20px"} role="group">
+                <Icon h={"10px"} color={"#c2d3f2"} as={IoSquareSharp} />
+                <Link
+                  fontSize={"15px"}
+                  color={"#444"}
+                  href={href}
+                  ml={"10px"}
+                  _groupHover={{ color: "#bc986b", textDecoration: "none" }}
+                >
+                  {child.label}
+                </Link>
+              </Flex>
+            ))}
+          </Box>
         </Box>
       </Stack>
     </Box>

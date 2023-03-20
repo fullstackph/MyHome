@@ -5,12 +5,20 @@ import { HiPhone, HiOutlineEnvelope, ImLocation2, FaFacebookF, ImGooglePlus, FaT
 const Footer = () => {
     return (
         <Box>
-            <Flex bgColor={'#31323c'} p={{base:'30px 0', md:'40px 0', lg:'60px 0'}} justifyContent={{base:'space-between'}} flexWrap={'wrap'}>
-                <Box w={{base:'100%', md:'50%', lg:'18%'}} p={{base:'0 15px', md:'0 30px', lg:'unset'}} mb={{base:'40px', md:'40px', lg:'unset'}}>
-                    <Flex alignItems={'center'}>
-                    <Icon as={BsFillSquareFill} color={'#bc986b'}/>
-                    <Heading color={'#fff'} fontWeight={'600'} fontSize={'24px'} mb={{base:'0', md:'0', lg:'0'}} pl={{base:'15px', md:'5px', lg:'15px'}}>Latest Properties</Heading>
-                    </Flex>
+            <Flex 
+            bgColor={'#31323c'} 
+            p={"60px 0"} 
+            justifyContent={'center'}>
+
+                <Box w={'18%'}>
+                    <Heading 
+                    color={'#fff'} 
+                    fontWeight={'600'} 
+                    fontSize={'24px'} 
+                    mb={'7%'}>
+                        Latest Properties
+                    </Heading>
+                    
                     <Flex alignItems={'center'} mt={'35px'}>
                         <Image src='/assets/footer1.jpg' boxSize={{ base: '63px', md: '66px', lg: '80px' }}></Image>
                             <Box ml={'25px'}>

@@ -13,6 +13,8 @@ import { RxDotFilled } from "react-icons/rx";
 import { MdOutlineKingBed } from "react-icons/md";
 import { FiChevronDown } from 'react-icons/Fi';
 import { TbCircleDot } from 'react-icons/Tb';
+import { BsFillPlusCircleFill, BsChevronLeft, BsChevronRight } from 'react-icons/Bs'
+import { AiFillMinusCircle } from 'react-icons/Ai'
 
 export {
   HiPhone,
@@ -36,5 +38,12 @@ export {
   MdOutlineKingBed,
   IoCarOutline,
   FiChevronDown, 
-  TbCircleDot
+  TbCircleDot,
+  BsFillPlusCircleFill, 
+  AiFillMinusCircle,
+  BsChevronLeft,
+  BsChevronRight
 };
+
+
+

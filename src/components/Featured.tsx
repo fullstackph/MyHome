@@ -1,6 +1,7 @@
 import { Container, Box, Flex, Text, Link } from "@chakra-ui/react";
 import Heading from "./Headings";
 import React from "react";
+import FeaturedCard from "./FeaturedCard";
 
 export const Featured = () => {
   return (
@@ -40,6 +41,17 @@ export const Featured = () => {
           </Link>
         </Flex>
       </Flex>
+      <Box>
+        <FeaturedCard
+          image={"f1.jpg"}
+          price={"$5000 \\mo"}
+          label={"401 Biscayne Boulevard, Miami"}
+          ft={"480 Sq Ft"}
+          bath={"2 Bathrooms"}
+          bed={"2 Bedrooms"}
+          gr={"1 Garage"}
+        />
+      </Box>
     </Container>
   );
 };

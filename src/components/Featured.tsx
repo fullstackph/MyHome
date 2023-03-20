@@ -1,4 +1,4 @@
-import { Container, Box, Flex, Text, Link } from "@chakra-ui/react";
+import { Container, Box, Flex, Text, Link, SimpleGrid } from "@chakra-ui/react";
 import Heading from "./Headings";
 import React from "react";
 import FeaturedCard from "./FeaturedCard";
@@ -41,7 +41,13 @@ export const Featured = () => {
           </Link>
         </Flex>
       </Flex>
-      <Box>
+      <SimpleGrid
+        columns={[2, null, 3]}
+        spacingX="30px"
+        spacingY={"80px"}
+        px={"350px"}
+        my={"75px"}
+      >
         <FeaturedCard
           image={"f1.jpg"}
           price={"$5000 \\mo"}
@@ -51,7 +57,52 @@ export const Featured = () => {
           bed={"2 Bedrooms"}
           gr={"1 Garage"}
         />
-      </Box>
+        <FeaturedCard
+          image={"f1.jpg"}
+          price={"$5000 \\mo"}
+          label={"401 Biscayne Boulevard, Miami"}
+          ft={"480 Sq Ft"}
+          bath={"2 Bathrooms"}
+          bed={"2 Bedrooms"}
+          gr={"1 Garage"}
+        />
+        <FeaturedCard
+          image={"f1.jpg"}
+          price={"$5000 \\mo"}
+          label={"401 Biscayne Boulevard, Miami"}
+          ft={"480 Sq Ft"}
+          bath={"2 Bathrooms"}
+          bed={"2 Bedrooms"}
+          gr={"1 Garage"}
+        />
+        <FeaturedCard
+          image={"f1.jpg"}
+          price={"$5000 \\mo"}
+          label={"401 Biscayne Boulevard, Miami"}
+          ft={"480 Sq Ft"}
+          bath={"2 Bathrooms"}
+          bed={"2 Bedrooms"}
+          gr={"1 Garage"}
+        />
+        <FeaturedCard
+          image={"f1.jpg"}
+          price={"$5000 \\mo"}
+          label={"401 Biscayne Boulevard, Miami"}
+          ft={"480 Sq Ft"}
+          bath={"2 Bathrooms"}
+          bed={"2 Bedrooms"}
+          gr={"1 Garage"}
+        />
+        <FeaturedCard
+          image={"f1.jpg"}
+          price={"$5000 \\mo"}
+          label={"401 Biscayne Boulevard, Miami"}
+          ft={"480 Sq Ft"}
+          bath={"2 Bathrooms"}
+          bed={"2 Bedrooms"}
+          gr={"1 Garage"}
+        />
+      </SimpleGrid>
     </Container>
   );
 };

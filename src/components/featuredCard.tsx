@@ -3,7 +3,6 @@ import "@splidejs/splide/dist/css/splide.min.css";
 
 import { motion } from "framer-motion";
 import {
-  Container,
   Image,
   Box,
   Text,

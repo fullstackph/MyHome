@@ -13,14 +13,14 @@ import {
 import { BiLogIn } from "react-icons/bi";
 import { ImLocation2, ImGooglePlus } from "react-icons/im";
 import { FaFacebookF, FaTwitter, FaVectorSquare } from "react-icons/fa";
-import { SlSocialPintarest } from "react-icons/Sl";
+import { SlSocialPintarest } from "react-icons/sl";
 import { IoSquareSharp, IoCarOutline } from "react-icons/io5";
 import { IoMdAdd } from "react-icons/io";
 import { RxDotFilled } from "react-icons/rx";
 import { MdOutlineKingBed } from "react-icons/md";
-import { FiChevronDown } from "react-icons/Fi";
-import { TbCircleDot } from "react-icons/Tb";
-import { AiFillMinusCircle } from "react-icons/Ai";
+import { FiChevronDown } from "react-icons/fi";
+import { TbCircleDot } from "react-icons/tb";
+import { AiFillMinusCircle } from "react-icons/ai";
 
 export {
   HiPhone,

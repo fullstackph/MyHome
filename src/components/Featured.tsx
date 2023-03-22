@@ -1,7 +1,7 @@
 import { Container, Box, Flex, Text, Link, SimpleGrid } from "@chakra-ui/react";
 import Heading from "./Headings";
 import React from "react";
-import FeaturedCard from "./featuredCard";
+import FeaturedCard from "./FeaturedCard";
 
 export const Featured = () => {
   return (

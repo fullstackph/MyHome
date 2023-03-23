@@ -8,10 +8,11 @@ const CardInfo = () => {
             <Flex
                 justifyContent={'center'}
                 alignItems={'center'}
+                flexDirection={{ base: 'column-reverse', md: 'unset' }}
             >
 
                 <Box
-                    mr={'30px'}
+                    mr={{ base: 'unset', md: '30px' }}
                     position={'relative'}
                     __css={{
                         '.parent-component::after': {
@@ -57,7 +58,7 @@ const CardInfo = () => {
                         className={'parent-component'}
                         border={'4px solid #f3f3f3'}
                         p={'41px 50px 53px'}
-                        w={'400px'}
+                        w={{ base: '350px', md: '400px' }}
                     >
                         <Box
                             position={'relative'}
@@ -94,7 +95,8 @@ const CardInfo = () => {
                 </Box>
 
                 <Box
-                    mr={'30px'}
+                    mr={{ base: 'unset', md: '30px' }}
+                    p={{ base: '10px', md: 'unset' }}
                     position={'relative'}
                     __css={{
                         '.parent-component::after': {
@@ -140,7 +142,7 @@ const CardInfo = () => {
                         className={'parent-component'}
                         border={'4px solid #f3f3f3'}
                         p={'41px 50px 53px'}
-                        w={'400px'}
+                        w={{ base: '350px', md: '400px' }}
                     >
                         <Box
                             position={'relative'}
@@ -177,6 +179,7 @@ const CardInfo = () => {
                 </Box>
 
                 <Box
+                    mr={{ base: 'unset', md: '30px' }}
                     position={'relative'}
                     __css={{
                         '.parent-component::after': {
@@ -222,7 +225,7 @@ const CardInfo = () => {
                         className={'parent-component'}
                         border={'4px solid #f3f3f3'}
                         p={'41px 50px 53px'}
-                        w={'400px'}
+                        w={{ base: '350px', md: '400px' }}
                     >
                         <Box
                             position={'relative'}

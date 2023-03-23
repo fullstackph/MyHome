@@ -6,9 +6,6 @@ import CardInfo from "@/components/CardInfo";
 
 const inter = Inter({ subsets: ["latin"] });
 
-
-
-
 export default function Home() {
   return (
     <>

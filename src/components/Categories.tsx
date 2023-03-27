@@ -1,4 +1,4 @@
-import { Container, Text, Flex, Heading, Wrap, WrapItem, Center, Box, } from '@chakra-ui/react'
+import { Container, Text, Flex, Heading, Wrap, WrapItem, Center, Box, Divider, Stack, } from '@chakra-ui/react'
 import React from 'react'
 import Heading1 from "./Headings";
 
@@ -22,15 +22,76 @@ const Categories = () => {
                         bgImage={'./assets/categories-1.jpg'}
                         bgRepeat={'no-repeat'}
                         bgSize={'cover'}
+                        __css={{
+                            '.parent-component::after': {
+                                content: '""',
+                                position: 'absolute',
+                                h: '100%',
+                                w: '100%',
+                                bgColor: '#000',
+                                display: 'none',
+                                left: '0',
+                                top: '0',
+
+                            },
+                            '.parent-component:hover::after': {
+                                opacity: 0.2,
+                                display: 'block',
+                                transition: 'all 0.5s ease-in-out',
+                            },
+
+                            '.child-component': {
+                                content: '""',
+                                transition: 'all 0.25s ease-in-out',
+                            },
+
+                            '.parent-component:hover .child-component': {
+                                opacity: 1,
+                                h: '50px',
+                                w: '3px',
+                                transformOrigin: 'left 2px',
+                            },
+                        }}
                     >
                         <Flex
                             flexDirection={'column'}
                             h={'100%'}
                             justifyContent={'flex-end'}
                             p={{ base: 'unset', md: '0 0 30px 50px', }}
+                            className={'parent-component'}
+                            position={'relative'}
                         >
-                            <Heading color={'#fff'}>Studio Apartments</Heading>
-                            <Text color={'#fff'}>8 Properties</Text>
+                            <Stack direction='row' h='auto' alignItems={'center'}>
+                                {/* <Divider
+                                    borderWidth={'3px'}
+                                    borderColor={'red'}
+                                    h={'40px'}
+                                    orientation='vertical'
+                                /> */}
+                                {/* <Divider
+                                    borderWidth={'3px'}
+                                    borderColor={'red'}
+                                    w={'50px'}
+                                    orientation='horizontal' /> */}
+                                <Box
+                                    w={'50px'}
+                                    bgColor={'red'}
+                                    h={'2px'}
+                                    className={'child-component'}
+                                    position={'relative'}
+                                >
+                                </Box>
+                                <Heading
+                                    color={'#fff'}
+                                    zIndex={'100'}
+                                    fontSize={'28px'}
+                                >Studio Apartments</Heading>
+                            </Stack>
+                            <Text
+                                pl={'60px'}
+                                color={'#fff'}
+                                zIndex={'100'}
+                            >8 Properties</Text>
                         </Flex>
                     </Box>
                 </WrapItem>
@@ -90,7 +151,7 @@ const Categories = () => {
                     </Box>
                 </WrapItem>
             </Wrap>
-        </Container>
+        </Container >
     )
 }
 

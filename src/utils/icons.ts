@@ -20,7 +20,7 @@ import { RxDotFilled } from "react-icons/rx";
 import { MdOutlineKingBed } from "react-icons/md";
 import { FiChevronDown } from "react-icons/fi";
 import { TbCircleDot } from "react-icons/tb";
-import { AiFillMinusCircle } from "react-icons/ai";
+import { AiFillMinusCircle, AiOutlineClockCircle } from "react-icons/ai";
 
 export {
   HiPhone,
@@ -49,4 +49,5 @@ export {
   AiFillMinusCircle,
   BsChevronLeft,
   BsChevronRight,
+  AiOutlineClockCircle,
 };

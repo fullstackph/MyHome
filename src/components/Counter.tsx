@@ -11,7 +11,7 @@ const Counter = () => {
       px={360}
       backgroundImage="url('/assets/counter-bg.jpg')"
       backgroundSize={"cover"}
-      backgroundPosition="center"
+      backgroundPosition="center calc(50% + 10px)"
       backgroundRepeat="no-repeat"
       backgroundAttachment={"fixed"}
       alignItems="center"

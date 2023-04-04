@@ -41,20 +41,29 @@ const FeaturedCard: React.FC<Props> = ({
 }) => {
   const [translateVal, setTranslateVal] = useState("0");
   const [scaleVal, setScaleVal] = useState("1");
+  const [shadow, setshadow] = useState("");
+  const [shadow2, setshadow2] = useState("");
 
   return (
     <Card
       maxW="sm"
       h={"325px"}
+      zIndex={1}
       borderRadius={"0"}
       position={"relative"}
+      boxShadow={shadow}
+      transition={"all 0.5s ease-in-out"}
       onMouseEnter={() => {
         setTranslateVal("-40");
         setScaleVal("1.1");
+        setshadow("0px 3px 12px rgba(0, 0, 0, 0.09)");
+        setshadow2(" 0px -40px 50px -30px rgba(0, 0, 0, 0.09)");
       }}
       onMouseLeave={() => {
         setTranslateVal("0");
         setScaleVal("1");
+        setshadow("");
+        setshadow2("");
       }}
     >
       <Box
@@ -66,9 +75,10 @@ const FeaturedCard: React.FC<Props> = ({
         borderWidth="1px"
         borderRadius="0"
         bg={"#fff"}
+        boxShadow={shadow2}
         borderColor="#fff"
       ></Box>
-      <CardBody h={"325px"} w={"325px"} position={"absolute"}>
+      <CardBody zIndex={5} h={"325px"} w={"325px"} position={"absolute"}>
         <Box
           h={"200px"}
           w={"325px"}

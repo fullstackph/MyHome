@@ -78,10 +78,10 @@ const FeaturedCard: React.FC<Props> = ({
         boxShadow={shadow2}
         borderColor="#fff"
       ></Box>
-      <CardBody zIndex={5} h={"325px"} w={"325px"} position={"absolute"}>
+      <CardBody h={"325px"} w={"325px"}>
         <Box
-          h={"200px"}
-          w={"325px"}
+          h={{ base: "auto", lg: "200px" }}
+          w={{ base: "88%", lg: "325px" }}
           top={"-25px"}
           left={"24px"}
           position={"absolute"}
@@ -89,12 +89,9 @@ const FeaturedCard: React.FC<Props> = ({
         >
           <Image
             src={image}
-            height={"200px"}
-            width={"350px"}
+            h={{ base: "auto", lg: "200px" }}
+            w={{ base: "100%", lg: "325px" }}
             transition={"all 0.3s ease-in-out"}
-            // _hover={{
-            //   transform: `scale(${scaleVal})`,
-            // }}
             transform={`scale(${scaleVal})`}
           />
 

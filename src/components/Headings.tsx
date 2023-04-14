@@ -8,9 +8,14 @@ interface Props {
 const Heading: React.FC<Props> = ({ label }) => {
   return (
     <Flex w={"full"} alignItems={"center"}>
-      <Box h={"1px"} m={0} w={"490px"} bg="#c2d3f2"></Box>
+      <Box
+        h={"1px"}
+        ml={{ base: "-15px", lg: "0" }}
+        w={{ base: "75px", sm: "100px", md: "200px", lg: "490px" }}
+        bg="#c2d3f2"
+      ></Box>
       <Icon as={RxDotFilled} ml={"-13px"} boxSize={10} color="#BC986B" />
-      <Text fontSize={"40px"} fontWeight={"400"}>
+      <Text fontSize={{ base: "24px", lg: "40px" }} fontWeight={"400"}>
         {label}
       </Text>
     </Flex>

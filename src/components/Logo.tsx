@@ -60,8 +60,18 @@ const Logo = () => {
             pagination: true,
             arrows: false,
             perMove: 1,
-            gap: "1em",
-            perPage: 4,
+            gap: "1em",            
+            breakpoints: {
+              1024: {
+                perPage: 4,
+              },
+              768: {
+                perPage: 2,
+              },
+              425: {
+                perPage: 1,
+              }
+            }
           }}
           aria-label="..."
         >

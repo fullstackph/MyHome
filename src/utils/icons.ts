@@ -9,6 +9,7 @@ import {
   BsFillPlusCircleFill,
   BsChevronLeft,
   BsChevronRight,
+  BsThreeDotsVertical,
 } from "react-icons/bs";
 import { BiLogIn } from "react-icons/bi";
 import { ImLocation2, ImGooglePlus } from "react-icons/im";
@@ -16,16 +17,23 @@ import { FaFacebookF, FaTwitter, FaVectorSquare } from "react-icons/fa";
 import { SlSocialPintarest } from "react-icons/sl";
 import { IoSquareSharp, IoCarOutline } from "react-icons/io5";
 import { IoMdAdd } from "react-icons/io";
-import { RxDotFilled } from "react-icons/rx";
+import { RxDotFilled, RxDotsVertical } from "react-icons/rx";
 import { MdOutlineKingBed } from "react-icons/md";
 import { FiChevronDown } from "react-icons/fi";
 import { TbCircleDot } from "react-icons/tb";
-import { AiFillMinusCircle, AiOutlineClockCircle } from "react-icons/ai";
+import {
+  AiFillMinusCircle,
+  AiOutlineClockCircle,
+  AiOutlineArrowLeft,
+} from "react-icons/ai";
 
 export {
   HiPhone,
+ AiOutlineArrowLeft,
   HiOutlineEnvelope,
   BiLogIn,
+  RxDotsVertical,
+  BsThreeDotsVertical,
   ImLocation2,
   FaFacebookF,
   ImGooglePlus,

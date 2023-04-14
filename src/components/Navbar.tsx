@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import {
   Box,
   Flex,
@@ -10,6 +10,11 @@ import {
   Collapse,
   Icon,
   Link,
+  Portal,
+  PopoverCloseButton,
+  PopoverHeader,
+  PopoverBody,
+  PopoverFooter,
   Popover,
   PopoverTrigger,
   PopoverContent,
@@ -19,27 +24,31 @@ import {
 } from "@chakra-ui/react";
 import {
   GiHamburgerMenu,
-  BsChevronUp,
+  BiLogIn,
+  HiPhone,
   BsChevronDown,
-  GrClose,
+  HiOutlineEnvelope,
   IoSquareSharp,
+  AiOutlineArrowLeft,
+  RxDotsVertical,
 } from "@/utils/icons";
 
 export default function WithSubnavigation() {
   const { isOpen, onToggle } = useDisclosure();
+  const initRef = useRef();
 
   return (
-    <Box px={{ base: "10", md: "50", lg: "350" }}>
+    <Box px={{ base: "1", md: "50", lg: "350" }}>
       <Flex
         bg={useColorModeValue("white", "gray.800")}
         color={useColorModeValue("gray.600", "white")}
         minH={{ base: "60px", md: "120px" }}
         py={{ base: 2 }}
-        px={{ base: 4 }}
+        px={{ base: 2 }}
         borderBottom={1}
         borderStyle={"solid"}
         borderColor={useColorModeValue("gray.200", "gray.900")}
-        align={"center"}
+        justifyContent="space-between"
       >
         <Flex
           flex={{ base: 1, md: "auto" }}
@@ -49,15 +58,86 @@ export default function WithSubnavigation() {
           <IconButton
             onClick={onToggle}
             icon={
-              isOpen ? <GrClose size={15} /> : <GiHamburgerMenu size={15} />
+              isOpen ? (
+                <Icon as={AiOutlineArrowLeft} boxSize="25px" />
+              ) : (
+                <Icon as={GiHamburgerMenu} boxSize="25px" />
+              )
             }
             variant={"ghost"}
             aria-label={"Toggle Navigation"}
           />
+          <Image
+            display={{ base: "block", md: "none" }}
+            src="header-logo.png"
+            alt="logo"
+          />
         </Flex>
 
-        <Flex flex={{ base: 1 }} justify={{ base: "center", md: "start" }}>
+        <Flex
+          flex={{ base: 1 }}
+          h="100%"
+          m="auto"
+          justify="start"
+          display={{ base: "none", md: "flex" }}
+        >
           <Image src="header-logo.png" alt="logo" />
+        </Flex>
+
+        <Flex flex={{ base: 1 }} justify={{ base: "end", md: "start" }}>
+          <Icon
+            display={{ base: "block", md: "none" }}
+            color="#BC986B"
+            as={BiLogIn}
+            h={7}
+            w={7}
+            m="auto 12px"
+          />
+          <Popover
+            closeOnBlur={false}
+            placement="bottom-end"
+            initialFocusRef={initRef.current}
+          >
+            {({ isOpen, onClose }) => (
+              <>
+                <PopoverTrigger>
+                  <IconButton
+                    icon={
+                      <Icon
+                        display={{ base: "block", md: "none" }}
+                        as={RxDotsVertical}
+                        h={7}
+                        w={7}
+                        m="auto"
+                      />
+                    }
+                    variant={"ghost"}
+                    aria-label={"Toggle Navigation"}
+                  />
+                </PopoverTrigger>
+                <Portal>
+                  <PopoverContent
+                    zIndex="200"
+                    maxW="max-content"
+                    borderRadius={0}
+                    backgroundColor="#F3F4F9"
+                    lineHeight={2}
+                  >
+                    <PopoverBody py={5} px={4}>
+                      <Flex letterSpacing={2}>
+                        <Icon color="#BC986B" as={HiPhone} mr={2} />
+                        <Text>1-800-1234-567</Text>
+                      </Flex>
+                      <Flex alignItems="center">
+                        <Icon color="#BC986B" as={HiOutlineEnvelope} mr={2} />
+                        <Text>info@demolink.org</Text>
+                      </Flex>
+                    </PopoverBody>
+                  </PopoverContent>
+                </Portal>
+              </>
+            )}
+          </Popover>
         </Flex>
 
         <Stack
@@ -66,6 +146,7 @@ export default function WithSubnavigation() {
           align={"center"}
           direction={"row"}
           spacing={8}
+          display={{ base: "none", md: "flex" }}
         >
           <Flex display={{ base: "none", md: "flex" }}>
             <DesktopNav />

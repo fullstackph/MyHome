@@ -6,10 +6,11 @@ import FeaturedCard from "./FeaturedCard";
 export const Featured = () => {
   return (
     <Container py={"115px"} maxW={"full"} bg={"#F3F4F9"}>
-      <Flex>
+      <Flex direction={{ base: "column", md: "row" }}>
         <Heading label="Featured Properties" />
         <Flex
           alignItems={"center"}
+          ml={{ base: "87px", md: "auto" }}
           pr={{ sm: "10px", md: "50px", lg: "350px" }}
         >
           <Link
@@ -42,10 +43,10 @@ export const Featured = () => {
         </Flex>
       </Flex>
       <SimpleGrid
-        columns={[2, null, 3]}
+        columns={[1, 2, 3]}
         spacingX="30px"
         spacingY={"80px"}
-        px={"350px"}
+        px={{ base: "0px", md: "50px", xl: "350px" }}
         my={"75px"}
       >
         <FeaturedCard

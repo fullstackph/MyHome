@@ -6,7 +6,7 @@ const Logo = () => {
   return (
     <Container py={"105px"} maxW={"full"}>
       <Box
-        px={{ base: "10", md: "50", lg: "350" }}
+        px={{ base: "14", md: "16", xl: "355" }}
         __css={{
           ".splide": {
             h: "175px",
@@ -60,18 +60,32 @@ const Logo = () => {
             pagination: true,
             arrows: false,
             perMove: 1,
-            gap: "1em",            
-            breakpoints: {
-              1024: {
-                perPage: 4,
+
+            slidesToShow: 4,
+            slidesToScroll: 1,
+            responsive: [
+              {
+                breakpoint: 1024,
+                settings: {
+                  slidesToShow: 2,
+                  slidesToScroll: 1,
+                },
               },
-              768: {
-                perPage: 2,
+              {
+                breakpoint: 768,
+                settings: {
+                  slidesToShow: 2,
+                  slidesToScroll: 1,
+                },
               },
-              425: {
-                perPage: 1,
-              }
-            }
+              {
+                breakpoint: 480,
+                settings: {
+                  slidesToShow: 1,
+                  slidesToScroll: 1,
+                },
+              },
+            ],
           }}
           aria-label="..."
         >
@@ -80,11 +94,15 @@ const Logo = () => {
               display={"flex"}
               alignItems="center"
               justifyContent={"center"}
-              w={265}
+              w={275}
               h={125}
               border="1px solid #919191"
             >
-              <Image src="/assets/brand.png" alt="Image 1" />
+              <Image
+                w={{ base: "50%", lg: "auto" }}
+                src="/assets/brand.png"
+                alt="Image 1"
+              />
             </Box>
           </SplideSlide>
           <SplideSlide>
@@ -92,11 +110,15 @@ const Logo = () => {
               display={"flex"}
               alignItems="center"
               justifyContent={"center"}
-              w={265}
+              w={275}
               h={125}
               border="1px solid #919191"
             >
-              <Image src="/assets/brand.png" alt="Image 1" />
+              <Image
+                w={{ base: "50%", lg: "auto" }}
+                src="/assets/brand.png"
+                alt="Image 1"
+              />
             </Box>
           </SplideSlide>
           <SplideSlide>
@@ -104,11 +126,15 @@ const Logo = () => {
               display={"flex"}
               alignItems="center"
               justifyContent={"center"}
-              w={265}
+              w={275}
               h={125}
               border="1px solid #919191"
             >
-              <Image src="/assets/brand.png" alt="Image 1" />
+              <Image
+                w={{ base: "50%", lg: "auto" }}
+                src="/assets/brand.png"
+                alt="Image 1"
+              />
             </Box>
           </SplideSlide>
           <SplideSlide>
@@ -116,11 +142,15 @@ const Logo = () => {
               display={"flex"}
               alignItems="center"
               justifyContent={"center"}
-              w={265}
+              w={275}
               h={125}
               border="1px solid #919191"
             >
-              <Image src="/assets/brand.png" alt="Image 1" />
+              <Image
+                w={{ base: "50%", lg: "auto" }}
+                src="/assets/brand.png"
+                alt="Image 1"
+              />
             </Box>
           </SplideSlide>
           <SplideSlide>
@@ -128,11 +158,15 @@ const Logo = () => {
               display={"flex"}
               alignItems="center"
               justifyContent={"center"}
-              w={265}
+              w={275}
               h={125}
               border="1px solid #919191"
             >
-              <Image src="/assets/brand.png" alt="Image 1" />
+              <Image
+                w={{ base: "50%", lg: "auto" }}
+                src="/assets/brand.png"
+                alt="Image 1"
+              />
             </Box>
           </SplideSlide>
         </Splide>
